@@ -2,11 +2,11 @@ function getComputerChoice () {
     let computerChoice = Math.floor(Math.random()*3);
     
     if (computerChoice === 0) {
-        return "Rock";
+        return "ROCK";
     } else if (computerChoice === 1) {
-        return "Paper";
+        return "PAPER";
     } else {
-        return "Scissors";
+        return "SCISSORS";
     }
 }
 
@@ -15,8 +15,16 @@ function getHumanChoice() {
     return humanChoice;
 }
 
+function playRound(humanChoice, computerChoice) {
+    humanChoice = humanChoice.toUpperCase();
+    let youWon = `You won! ${humanChoice} beats ${computerChoice}`;
+    let youLost = `You lost! ${computerChoice} beats ${humanChoice}`;
+
+    console.log(youWon);
+    console.log(youLost);
+}
+
 let humanScore = 0;
 let computerScore = 0;
 
-console.log(humanScore);
-console.log(computerScore);
+playRound(getHumanChoice(), getComputerChoice());
