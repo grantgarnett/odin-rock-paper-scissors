@@ -20,8 +20,42 @@ function playRound(humanChoice, computerChoice) {
     let youWon = `You won! ${humanChoice} beats ${computerChoice}`;
     let youLost = `You lost! ${computerChoice} beats ${humanChoice}`;
 
-    console.log(youWon);
-    console.log(youLost);
+    console.log(humanChoice);
+    console.log(computerChoice);
+
+    if(humanChoice === computerChoice) {
+        console.log("You tied! Try again.");
+    }
+    else if (humanChoice === "ROCK") {
+        if (computerChoice === "PAPER") {
+            console.log(youLost);
+            computerScore += 1;
+        }
+        else {
+            console.log(youWon);
+            humanScore += 1;
+        }
+    }
+    else if (humanChoice === "PAPER") {
+        if (computerChoice === "ROCK") {
+            console.log(youWon);
+            humanScore += 1;
+        }
+        else {
+            console.log(youLost);
+            computerScore += 1;
+        }
+    }
+    else {
+        if (computerChoice === "ROCK") {
+            console.log(youLost);
+            computerScore += 1;
+        }
+        else {
+            console.log(youWon);
+            humanScore += 1;
+        }
+    }
 }
 
 let humanScore = 0;
