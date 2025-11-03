@@ -1,3 +1,6 @@
+let humanScore = 0;
+let computerScore = 0;
+
 function getComputerChoice () {
     let computerChoice = Math.floor(Math.random()*3);
     
@@ -57,8 +60,5 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 }
-
-let humanScore = 0;
-let computerScore = 0;
 
 playRound(getHumanChoice(), getComputerChoice());
