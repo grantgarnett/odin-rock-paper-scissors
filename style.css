@@ -16,7 +16,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 20vh;
+    height: 30vh;
     width: 60vw;
 }
 
@@ -36,8 +36,42 @@ body {
     gap: 5px;
 }
 
-.block-three {
-    height: 15vh;
+.player-score {
+    margin-left: 30px;
+}
+
+.computer-score {
+    margin-right: 5px;
+}
+
+.block-two {
     display: flex;
-    align-items: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    width: 60vw;
+    height: 100%;
+}
+
+.player-selections {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.rock, .paper, .scissors {
+    width: 100px;
+    height: 100px;
+}
+
+.computer-image {
+    width: 100px;
+    height: 100px;
+    align-self: center;
+}
+
+.block-three {
+    height: 20vh;
+    display: flex;
+    align-items: center;
 }
