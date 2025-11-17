@@ -1,4 +1,5 @@
 * {
+    margin: 0;
     box-sizing: border-box;
     font-family: Roboto, sans-serif;
 }
@@ -14,7 +15,13 @@ body {
 .block-one {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-around;
+    height: 20vh;
+    width: 60vw;
+}
+
+#hero {
+    align-self: center;
 }
 
 .scores {
@@ -26,4 +33,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 5px;
+}
+
+.block-three {
+    height: 15vh;
+    display: flex;
+    align-items: flex-start;
 }
