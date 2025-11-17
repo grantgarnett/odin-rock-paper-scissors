@@ -1,17 +1,18 @@
-function getComputerChoice () {
-    let computerChoice = Math.floor(Math.random()*3);
-    
-    if (computerChoice === 0) {
-        return "ROCK";
-    } else if (computerChoice === 1) {
-        return "PAPER";
-    } else {
-        return "SCISSORS";
-    }
-}
-
 let humanScore = 0;
 let computerScore = 0;
+
+function getComputerChoice () {
+    const computerChoice = Math.floor(Math.random()*3);
+    const choiceImage = document.querySelector(".computer-image")
+    
+    if (computerChoice === 0) {
+        choiceImage.src = "./images/rock.png";
+    } else if (computerChoice === 1) {
+        choiceImage.src = "./images/paper.png";
+    } else {
+        choiceImage.src = "./images/scissors.png";
+    }
+}
 
 function playRound(humanChoice, computerChoice) {
     humanChoice = humanChoice.toUpperCase();
@@ -52,3 +53,5 @@ function playRound(humanChoice, computerChoice) {
         }
     }
 }
+
+getComputerChoice();
