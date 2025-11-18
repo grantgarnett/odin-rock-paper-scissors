@@ -12,7 +12,7 @@ body {
     height: 100vh;
 }
 
-.block-one {
+#block-one {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -24,23 +24,23 @@ body {
     align-self: center;
 }
 
-.scores {
+#scores {
     display: flex;
     justify-content: space-between;
 }
 
-.player-scoring, .computer-scoring {
+#player-scoring, #computer-scoring {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 5px;
 }
 
-.player-scoring {
+#player-scoring {
     width: 100px;
 }
 
-.computer-scoring {
+#computer-scoring {
     width: 150px;
 }
 
@@ -48,7 +48,7 @@ body {
     font-size: 20px;
 }
 
-.block-two {
+#block-two {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -56,7 +56,7 @@ body {
     height: 100%;
 }
 
-.player-selections {
+#player-selections {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -68,18 +68,18 @@ body {
     height: 100px;
 }
 
-.computer-image {
+#computer-image {
     width: 150px;
     height: 150px;
     align-self: center;
 }
 
-.block-three {
+#block-three {
     height: 20vh;
     display: flex;
     align-items: center;
 }
 
-#first2five {
+#footer {
     font-size: 24px;
 }

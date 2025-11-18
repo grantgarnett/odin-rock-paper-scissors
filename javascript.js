@@ -4,7 +4,7 @@ let computerScore = 0;
 const heroText = document.querySelector("#hero");
 const hScoreDisplay = document.querySelector("#player-score");
 const cScoreDisplay = document.querySelector("#computer-score");
-const nextGameContainer = document.querySelector(".next-text");
+const nextGameContainer = document.querySelector("#next-text");
 
 const rock = document.querySelector("#rock");
 rock.addEventListener("click", playRound);
@@ -24,7 +24,7 @@ scissors.addEventListener("mouseleave", choiceLeave);
 function getComputerChoice () {
 
     const computerChoice = Math.floor(Math.random()*3);
-    const choiceImage = document.querySelector(".computer-image")
+    const choiceImage = document.querySelector("#computer-image")
     
     if (computerChoice === 0) {
         choiceImage.src = "./images/rock.png";
