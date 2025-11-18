@@ -59,7 +59,7 @@ body {
     height: 100%;
 }
 
-.rock, .paper, .scissors {
+#rock, #paper, #scissors {
     width: 100px;
     height: 100px;
 }

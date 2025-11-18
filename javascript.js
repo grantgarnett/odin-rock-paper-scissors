@@ -5,16 +5,23 @@ const heroText = document.querySelector("#hero");
 const hScoreDisplay = document.querySelector("#player-score");
 const cScoreDisplay = document.querySelector("#computer-score");
 
-const rock = document.querySelector(".rock");
+const rock = document.querySelector("#rock");
 rock.addEventListener("click", playRound);
+rock.addEventListener("mouseenter", choiceEnter);
+rock.addEventListener("mouseleave", choiceLeave);
 
-const paper = document.querySelector(".paper");
+const paper = document.querySelector("#paper");
 paper.addEventListener("click", playRound);
+paper.addEventListener("mouseenter", choiceEnter);
+paper.addEventListener("mouseleave", choiceLeave);
 
-const scissors = document.querySelector(".scissors");
-scissors.addEventListener("click", playRound)
+const scissors = document.querySelector("#scissors");
+scissors.addEventListener("click", playRound);
+scissors.addEventListener("mouseenter", choiceEnter);
+scissors.addEventListener("mouseleave", choiceLeave);
 
 function getComputerChoice () {
+
     const computerChoice = Math.floor(Math.random()*3);
     const choiceImage = document.querySelector(".computer-image")
     
@@ -30,11 +37,20 @@ function getComputerChoice () {
     }
 }
 
-function playRound(event) {
-    const computerChoice = getComputerChoice();
-    const humanChoice = event.srcElement.className.toUpperCase();
+function choiceEnter(event) {
+    event.target.border = "2rem solid";
+}
 
-    console.log(humanChoice);
+function choiceLeave(event) {
+    event.target.border = "";
+}
+
+function playRound(event) {
+
+    const computerChoice = getComputerChoice();
+    const humanChoice = event.target.id.toUpperCase();
+
+    console.log(event);
     let youWon = `You won! ${humanChoice} beats ${computerChoice}`;
     let youLost = `You lost! ${computerChoice} beats ${humanChoice}`;
 
@@ -76,6 +92,54 @@ function playRound(event) {
             humanScore += 1;
             hScoreDisplay.textContent = humanScore;
         }
+    }
+
+    if((humanScore === 5) || (computerScore === 5)) {
+        rock.removeEventListener("click", playRound);
+        rock.removeEventListener("mouseenter", choiceEnter);
+        rock.removeEventListener("mouseleave", choiceLeave);
+        paper.removeEventListener("click", playRound);
+        paper.removeEventListener("mouseenter", choiceEnter);
+        paper.removeEventListener("mouseleave", choiceLeave);
+        scissors.removeEventListener("click", playRound);
+        scissors.removeEventListener("mouseenter", choiceEnter);
+        scissors.removeEventListener("mouseleave", choiceLeave);
+
+        rock.border = "";
+        paper.border = "";
+        scissors.border = "";
+
+        if(humanScore === 5) {
+            heroText.textContent = "Good job! You won.";
+        } else {
+            heroText.textContent = "Maybe next time.";
+        }
+
+        playAgain = document.createElement("button");
+        playAgain.textContent = "Play Again";
+        playAgain.addEventListener("click", (event) => {
+            humanScore = hScoreDisplay.textContent = 0;
+            computerScore = cScoreDisplay.textContent = 0;
+
+            rock.addEventListener("click", playRound);
+            rock.addEventListener("mouseenter", choiceEnter);
+            rock.addEventListener("mouseleave", choiceLeave);
+
+            paper.addEventListener("click", playRound);
+            paper.addEventListener("mouseenter", choiceEnter);
+            paper.addEventListener("mouseleave", choiceLeave);
+
+            scissors.addEventListener("click", playRound);
+            scissors.addEventListener("mouseenter", choiceEnter);
+            scissors.addEventListener("mouseleave", choiceLeave);
+
+            playAgain.remove();
+        });
+
+        const container = document.querySelector(".next-text");
+        container.appendChild(playAgain);
+
+
     }
 }
 
