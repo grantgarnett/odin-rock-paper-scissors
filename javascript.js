@@ -128,6 +128,7 @@ function playRound(event) {
         playAgain.addEventListener("click", () => {
             playerSelections.forEach(initializePlayerSelection);
             compChoiceImage.src = "./images/question-mark.png";
+            heroText.textContent = "Rock, paper, or scissors?";
             playAgain.remove();
         });
 
