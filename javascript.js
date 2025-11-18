@@ -7,7 +7,7 @@ const cScoreDisplay = document.querySelector("#computer-score");
 const nextGameContainer = document.querySelector("#next-text");
 const compChoiceImage = document.querySelector("#computer-image")
 
-const rock = document.querySelector("#rock");
+/*const rock = document.querySelector("#rock");
 rock.addEventListener("click", playRound);
 rock.addEventListener("mouseenter", choiceEnter);
 rock.addEventListener("mouseleave", choiceLeave);
@@ -20,7 +20,10 @@ paper.addEventListener("mouseleave", choiceLeave);
 const scissors = document.querySelector("#scissors");
 scissors.addEventListener("click", playRound);
 scissors.addEventListener("mouseenter", choiceEnter);
-scissors.addEventListener("mouseleave", choiceLeave);
+scissors.addEventListener("mouseleave", choiceLeave);*/
+
+const playerSelections = document.querySelectorAll(".selection");
+playerSelections.forEach(initializePlayerSelection);
 
 function getComputerChoice () {
 
@@ -50,6 +53,8 @@ function initializePlayerSelection(selection) {
     selection.addEventListener("click", playRound);
     selection.addEventListener("mouseenter", choiceEnter);
     selection.addEventListener("mouseleave", choiceLeave);
+    humanScore = hScoreDisplay.textContent = 0;
+    computerScore = cScoreDisplay.textContent = 0;
 }
 
 function deinitPlayerSelection(selection) {
@@ -112,19 +117,7 @@ function playRound(event) {
 
     } else {
 
-        rock.removeEventListener("click", playRound);
-        rock.removeEventListener("mouseenter", choiceEnter);
-        rock.removeEventListener("mouseleave", choiceLeave);
-        paper.removeEventListener("click", playRound);
-        paper.removeEventListener("mouseenter", choiceEnter);
-        paper.removeEventListener("mouseleave", choiceLeave);
-        scissors.removeEventListener("click", playRound);
-        scissors.removeEventListener("mouseenter", choiceEnter);
-        scissors.removeEventListener("mouseleave", choiceLeave);
-
-        rock.border = "";
-        paper.border = "";
-        scissors.border = "";
+        playerSelections.forEach(deinitPlayerSelection);
 
         if(humanScore === 5) {
             heroText.textContent = "Good job! You won.";
@@ -135,23 +128,8 @@ function playRound(event) {
         playAgain = document.createElement("button");
         playAgain.textContent = "Play Again";
         playAgain.addEventListener("click", () => {
-            humanScore = hScoreDisplay.textContent = 0;
-            computerScore = cScoreDisplay.textContent = 0;
-
-            rock.addEventListener("click", playRound);
-            rock.addEventListener("mouseenter", choiceEnter);
-            rock.addEventListener("mouseleave", choiceLeave);
-
-            paper.addEventListener("click", playRound);
-            paper.addEventListener("mouseenter", choiceEnter);
-            paper.addEventListener("mouseleave", choiceLeave);
-
-            scissors.addEventListener("click", playRound);
-            scissors.addEventListener("mouseenter", choiceEnter);
-            scissors.addEventListener("mouseleave", choiceLeave);
-
+            playerSelections.forEach(initializePlayerSelection);
             compChoiceImage.src = "./images/question-mark.png";
-
             playAgain.remove();
         });
 
