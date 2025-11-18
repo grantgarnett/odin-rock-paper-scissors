@@ -4,6 +4,7 @@ let computerScore = 0;
 const heroText = document.querySelector("#hero");
 const hScoreDisplay = document.querySelector("#player-score");
 const cScoreDisplay = document.querySelector("#computer-score");
+const nextGameContainer = document.querySelector(".next-text");
 
 const rock = document.querySelector("#rock");
 rock.addEventListener("click", playRound);
@@ -136,10 +137,7 @@ function playRound(event) {
             playAgain.remove();
         });
 
-        const container = document.querySelector(".next-text");
-        container.appendChild(playAgain);
-
-
+        nextGameContainer.appendChild(playAgain);
     }
 }
 
