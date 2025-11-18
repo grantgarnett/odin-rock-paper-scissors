@@ -118,7 +118,7 @@ function playRound(event) {
 
         playAgain = document.createElement("button");
         playAgain.textContent = "Play Again";
-        playAgain.addEventListener("click", (event) => {
+        playAgain.addEventListener("click", () => {
             humanScore = hScoreDisplay.textContent = 0;
             computerScore = cScoreDisplay.textContent = 0;
 
