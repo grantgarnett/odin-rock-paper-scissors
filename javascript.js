@@ -46,6 +46,19 @@ function choiceLeave(event) {
     event.target.border = "";
 }
 
+function initializePlayerSelection(selection) {
+    selection.addEventListener("click", playRound);
+    selection.addEventListener("mouseenter", choiceEnter);
+    selection.addEventListener("mouseleave", choiceLeave);
+}
+
+function deinitPlayerSelection(selection) {
+    selection.removeEventListener("click", playRound);
+    selection.removeEventListener("mouseenter", choiceEnter);
+    selection.removeEventListener("mouseleave", choiceLeave);
+    selection.border = "";
+}
+
 function playRound(event) {
 
     if((humanScore < 5) && (computerScore < 5)) {
