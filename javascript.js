@@ -7,21 +7,6 @@ const cScoreDisplay = document.querySelector("#computer-score");
 const nextGameContainer = document.querySelector("#next-text");
 const compChoiceImage = document.querySelector("#computer-image")
 
-/*const rock = document.querySelector("#rock");
-rock.addEventListener("click", playRound);
-rock.addEventListener("mouseenter", choiceEnter);
-rock.addEventListener("mouseleave", choiceLeave);
-
-const paper = document.querySelector("#paper");
-paper.addEventListener("click", playRound);
-paper.addEventListener("mouseenter", choiceEnter);
-paper.addEventListener("mouseleave", choiceLeave);
-
-const scissors = document.querySelector("#scissors");
-scissors.addEventListener("click", playRound);
-scissors.addEventListener("mouseenter", choiceEnter);
-scissors.addEventListener("mouseleave", choiceLeave);*/
-
 const playerSelections = document.querySelectorAll(".selection");
 playerSelections.forEach(initializePlayerSelection);
 
