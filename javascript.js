@@ -5,6 +5,7 @@ const heroText = document.querySelector("#hero");
 const hScoreDisplay = document.querySelector("#player-score");
 const cScoreDisplay = document.querySelector("#computer-score");
 const nextGameContainer = document.querySelector("#next-text");
+const compChoiceImage = document.querySelector("#computer-image")
 
 const rock = document.querySelector("#rock");
 rock.addEventListener("click", playRound);
@@ -24,16 +25,15 @@ scissors.addEventListener("mouseleave", choiceLeave);
 function getComputerChoice () {
 
     const computerChoice = Math.floor(Math.random()*3);
-    const choiceImage = document.querySelector("#computer-image")
     
     if (computerChoice === 0) {
-        choiceImage.src = "./images/rock.png";
+        compChoiceImage.src = "./images/rock.png";
         return "ROCK";
     } else if (computerChoice === 1) {
-        choiceImage.src = "./images/paper.png";
+        compChoiceImage.src = "./images/paper.png";
         return "PAPER";
     } else {
-        choiceImage.src = "./images/scissors.png";
+        compChoiceImage.src = "./images/scissors.png";
         return "SCISSORS";
     }
 }
@@ -133,6 +133,8 @@ function playRound(event) {
             scissors.addEventListener("click", playRound);
             scissors.addEventListener("mouseenter", choiceEnter);
             scissors.addEventListener("mouseleave", choiceLeave);
+
+            compChoiceImage.src = "./images/question-mark.png";
 
             playAgain.remove();
         });
