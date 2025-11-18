@@ -48,54 +48,57 @@ function choiceLeave(event) {
 
 function playRound(event) {
 
-    const computerChoice = getComputerChoice();
-    const humanChoice = event.target.id.toUpperCase();
+    if((humanScore < 5) && (computerScore < 5)) {
 
-    console.log(event);
-    let youWon = `You won! ${humanChoice} beats ${computerChoice}`;
-    let youLost = `You lost! ${computerChoice} beats ${humanChoice}`;
+        const computerChoice = getComputerChoice();
+        const humanChoice = event.target.id.toUpperCase();
 
-    if(humanChoice === computerChoice) {
-        heroText.textContent = "You tied! Try again.";
-    }
-    else if (humanChoice === "ROCK") {
-        if (computerChoice === "PAPER") {
-            heroText.textContent = youLost;
-            computerScore += 1;
-            cScoreDisplay.textContent = computerScore;
+        console.log(event);
+        let youWon = `You won! ${humanChoice} beats ${computerChoice}`;
+        let youLost = `You lost! ${computerChoice} beats ${humanChoice}`;
+
+        if(humanChoice === computerChoice) {
+            heroText.textContent = "You tied! Try again.";
+        }
+        else if (humanChoice === "ROCK") {
+            if (computerChoice === "PAPER") {
+                heroText.textContent = youLost;
+                computerScore += 1;
+                cScoreDisplay.textContent = computerScore;
+            }
+            else {
+                heroText.textContent = youWon;
+                humanScore += 1;
+                hScoreDisplay.textContent = humanScore;
+            }
+        }
+        else if (humanChoice === "PAPER") {
+            if (computerChoice === "ROCK") {
+                heroText.textContent = youWon;
+                humanScore += 1;
+                hScoreDisplay.textContent = humanScore;
+            }
+            else {
+                heroText.textContent = youLost;
+                computerScore += 1;
+                cScoreDisplay.textContent = computerScore;
+            }
         }
         else {
-            heroText.textContent = youWon;
-            humanScore += 1;
-            hScoreDisplay.textContent = humanScore;
+            if (computerChoice === "ROCK") {
+                heroText.textContent = youLost;
+                computerScore += 1;
+                cScoreDisplay.textContent = computerScore;
+            }
+            else {
+                heroText.textContent = youWon;
+                humanScore += 1;
+                hScoreDisplay.textContent = humanScore;
+            }
         }
-    }
-    else if (humanChoice === "PAPER") {
-        if (computerChoice === "ROCK") {
-            heroText.textContent = youWon;
-            humanScore += 1;
-            hScoreDisplay.textContent = humanScore;
-        }
-        else {
-            heroText.textContent = youLost;
-            computerScore += 1;
-            cScoreDisplay.textContent = computerScore;
-        }
-    }
-    else {
-        if (computerChoice === "ROCK") {
-            heroText.textContent = youLost;
-            computerScore += 1;
-            cScoreDisplay.textContent = computerScore;
-        }
-        else {
-            heroText.textContent = youWon;
-            humanScore += 1;
-            hScoreDisplay.textContent = humanScore;
-        }
-    }
 
-    if((humanScore === 5) || (computerScore === 5)) {
+    } else {
+
         rock.removeEventListener("click", playRound);
         rock.removeEventListener("mouseenter", choiceEnter);
         rock.removeEventListener("mouseleave", choiceLeave);
